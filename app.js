@@ -16,7 +16,7 @@ app = express()
 
 
 
-mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0$12!G!WAi@cluster0-zjiyv.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0%2412%21G%21WAi@cluster0-zjiyv.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true})
 
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({extended: true}), express.static(__dirname + "/public"))
