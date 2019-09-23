@@ -53,6 +53,6 @@ res.render("landing")
 })
 
 // TO get server started
-app.listen(4005, function(){
-    console.log("YelpCamp site on PORT 4005")
-})
+// app.listen(4005, function(){
+//     console.log("YelpCamp site on PORT 4005")
+// })
