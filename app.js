@@ -12,7 +12,6 @@ commentRoutes      = require("./routes/comments"),
 campgroundRoutes   = require("./routes/campgrounds"),
 indexRoutes        = require("./routes/index"),
 methodOverride     = require("method-override"),
-mongoStore         = require("connect-mongo")(session)
 app = express()
 
 
@@ -22,8 +21,7 @@ app = express()
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({extended: true}), express.static(__dirname + "/public"))
 app.use(flash())
-app.use(session({
-	secret: "YelpCamp",
+app.use(require("connect-mongo")({
 	store: new MongoStore({ url: "mongodb+srv://Magnus-Peters-Munzo:vB0%2412!G!WAi@cluster0-zjiyv.mongodb.net/test?retryWrites=true&w=majority"})
 }))
 app.use(require("express-session")({
