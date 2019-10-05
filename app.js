@@ -16,14 +16,12 @@ app = express()
 
 
 
-// mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0%2412!G!WAi@cluster0-zjiyv.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0$12!G!WAi@cluster0-zjiyv.mongodb.net/cluster0", {useNewUrlParser: true})
 
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({extended: true}), express.static(__dirname + "/public"))
 app.use(flash())
-app.use(require("connect-mongo")({
-	store: new MongoStore({ url: "mongodb+srv://Magnus-Peters-Munzo:vB0%2412!G!WAi@cluster0-zjiyv.mongodb.net/test?retryWrites=true&w=majority"})
-}))
+
 app.use(require("express-session")({
     secret: "YelpCamp is about to be done!",
     resave: false,
@@ -32,8 +30,8 @@ app.use(require("express-session")({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride("_method"))
-mongoose.set('useFindAndModify', false);
-mongoose.set('useUnifiedTopology', true);
+mongoose.set('useFindAndModify', false, 'useUnifiedTopology', true);
+
 
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
