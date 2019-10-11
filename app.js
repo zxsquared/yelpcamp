@@ -16,7 +16,7 @@ app = express()
 
 
 mongoose.connect("mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true})
-// mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0$12!G!WAi@cluster0-zjiyv.mongodb.net/cluster0", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0$12!G!WAi@cluster0-zjiyv.mongodb.net/cluster0", {useNewUrlParser: true})
 console.log(process.env.databaseURL)
 // process.env.databaseURL
 app.set("view engine", "ejs")
