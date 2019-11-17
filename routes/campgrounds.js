@@ -15,7 +15,6 @@ router.get("/", function(req, res){
         res.render("campgrounds/index", {campgrounds: allcampgrounds})   
     }
     })
-    
     })
 
     router.post("/", middleware.isLoggedIn, function(req, res){

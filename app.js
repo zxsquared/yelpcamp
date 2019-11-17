@@ -15,9 +15,9 @@ methodOverride     = require("method-override"),
 app = express()
 
 
-mongoose.connect("mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true})
-mongoose.connect("mongodb+srv://Magnus-Peters-Munzo:vB0$12!G!WAi@cluster0-zjiyv.mongodb.net/cluster0", {useNewUrlParser: true})
-console.log(process.env.databaseURL)
+var url = process.env.databaseURL || "mongodb://localhost:27017/yelpcamp"
+mongoose.connect(url)
+
 // process.env.databaseURL
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({extended: true}), express.static(__dirname + "/public"))
@@ -51,6 +51,7 @@ app.use("/campgrounds/:id/comments", commentRoutes)
 
 app.get("/", function(req, res){
 res.render("landing")
+
 })
 
 // TO get server started
